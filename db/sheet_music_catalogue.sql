@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS piece_locations;
+DROP TABLE IF EXISTS pieces;
+DROP TABLE IF EXISTS books;
+
+CREATE TABLE pieces (
+  id SERIAL PRIMARY KEY,
+);
+
+CREATE TABLE books (
+  id SERIAL PRIMARY KEY,
+);
+
+CREATE TABLE piece_locations (
+  id SERIAL PRIMARY KEY,
+);
