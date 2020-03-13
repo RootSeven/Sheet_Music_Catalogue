@@ -6,7 +6,7 @@ CREATE TABLE pieces (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
   suite VARCHAR(255),
-  movement VARCHAR(255),
+  movement INT,
   catalogue_name VARCHAR(255),
   opus INT,
   number INT,
