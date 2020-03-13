@@ -1,3 +1,5 @@
+require('pry-byebug')
+
 require_relative('../models/book.rb')
 require_relative('../models/piece.rb')
 require_relative('../models/piece_location.rb')
@@ -49,3 +51,8 @@ piece_location2 = PieceLocation.new({
 
 piece_location1.save()
 piece_location2.save()
+
+all_books = Book.all()
+
+binding.pry
+nil

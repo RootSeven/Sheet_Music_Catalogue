@@ -26,6 +26,13 @@ class Book
     @id = book_hash['id'].to_i
   end
 
+  def self.all()
+    sql = "SELECT * FROM books"
+    books = SqlRunner.run(sql)
+    book_objects = books.map { |book| Book.new(book)}
+    return book_objects
+  end
+
   def self.delete_all()
     sql = "DELETE FROM books"
     SqlRunner.run(sql)
