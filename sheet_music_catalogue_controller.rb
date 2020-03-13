@@ -15,6 +15,6 @@ get '/' do
 end
 
 get '/index' do
-  @books = Book.all()
+  @books = Book.all() # Returns an array of objects
   erb(:index)
 end

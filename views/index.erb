@@ -1,5 +1,10 @@
+<h1>Full Catalogue</h1>
 <% @books.each do |book| %>
-  <p>Book Name: <%= book.name %></p>
-  <p>Edition: <%= book.edition %></p>
+  <p><%= book.name %></p>
+  <% book.all_pieces().each do |piece| %>
+    <ul>
+      <li><%= piece.name %>, by <%= piece.composer %></li>
+    </ul>
+  <% end %>
   <hr>
 <% end %>

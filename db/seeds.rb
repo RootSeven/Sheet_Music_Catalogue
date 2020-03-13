@@ -40,9 +40,31 @@ piece3 = Piece.new({
   'composer' => 'Astor, Miguel',
   })
 
+piece4 = Piece.new({
+  'name' => 'Je te veux',
+  'suite' => '',
+  'movement' => -1,
+  'catalogue_name' => '',
+  'opus' => -1,
+  'number' => -1,
+  'composer' => 'Satie, Erik',
+  })
+
+piece5 = Piece.new({
+  'name' => 'Gigue',
+  'suite' => 'French Suite No.5 in G',
+  'movement' => 7,
+  'catalogue_name' => 'BWV',
+  'opus' => 816,
+  'number' => -1,
+  'composer' => 'Bach, Johann Sebastian',
+  })
+
 piece1.save()
 piece2.save()
 piece3.save()
+piece4.save()
+piece5.save()
 
 # Books
 
@@ -56,8 +78,14 @@ book2 = Book.new({
   'edition' => 'Urtext'
   })
 
+book3 = Book.new({
+  'name' => 'Je te veux: valse chantee pour chant & piano',
+  'edition' => 'Salabert Editions'
+  })
+
 book1.save()
 book2.save()
+book3.save()
 
 # Piece Locations
 
@@ -81,10 +109,22 @@ piece_location4 = PieceLocation.new({
   'piece_id' => piece3.id
   })
 
+piece_location5 = PieceLocation.new({
+  'book_id' => book3.id,
+  'piece_id' => piece4.id
+  })
+
+piece_location6 = PieceLocation.new({
+  'book_id' => book1.id,
+  'piece_id' => piece5.id
+  })
+
 piece_location1.save()
 piece_location2.save()
 piece_location3.save()
 piece_location4.save()
+piece_location5.save()
+piece_location6.save()
 
 binding.pry
 nil
