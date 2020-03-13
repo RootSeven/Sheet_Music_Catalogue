@@ -7,7 +7,8 @@ require_relative('book.rb')
 
 class PieceLocation
 
-  attr_reader :id, :book_id, :piece_id
+  attr_reader :id
+  attr_accessor :book_id, :piece_id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -24,6 +25,19 @@ class PieceLocation
     values = [@book_id, @piece_id]
     piece_location_hash = SqlRunner.run(sql, values).first()
     @id = piece_location_hash['id'].to_i
+  end
+
+  def update()
+    sql = "UPDATE piece_locations SET (book_id, piece_id) = ($1, $2)
+          WHERE id = $3"
+    values = [@book_id, @piece_id, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.all()
+    sql = "SELECT * FROM piece_locations"
+    piece_location_array = SqlRunner.run(sql)
+    return piece_location_array.map { |piece_location| PieceLocation.new(piece_locations)}
   end
 
   def self.delete_all()

@@ -7,7 +7,8 @@ require_relative('piece_location.rb')
 
 class Piece
 
-  attr_reader :id, :name, :suite, :movement, :catalogue_name, :opus, :number, :composer
+  attr_reader :id
+  attr_accessor :name, :suite, :movement, :catalogue_name, :opus, :number, :composer
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -41,6 +42,22 @@ class Piece
               @composer]
     piece_hash = SqlRunner.run(sql, values).first()
     @id = piece_hash['id'].to_i
+  end
+
+  def update()
+    sql = "UPDATE pieces SET
+            (name, suite, movement, catalogue_name, opus, number, composer)
+            =
+            ($1, $2, $3, $4, $5, $6, $7)
+            WHERE id = $8"
+    values = [@name, @suite, @movement, @catalogue_name, @opus, @number, @composer, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.all()
+    sql = "SELECT * FROM pieces"
+    pieces = SqlRunner.run(sql)
+    return pieces.map { |piece| Piece.new(piece)}
   end
 
   def self.delete_all()
