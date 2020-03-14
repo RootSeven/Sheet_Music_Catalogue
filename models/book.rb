@@ -1,5 +1,4 @@
 require('pg')
-
 require_relative('../db/sql_runner.rb')
 
 require_relative('book.rb')
@@ -34,6 +33,12 @@ class Book
     SqlRunner.run(sql, values)
   end
 
+  def delete()
+    sql = "DELETE FROM books WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
   def all_pieces()
     sql = "SELECT * FROM books
             INNER JOIN piece_locations ON books.id = piece_locations.book_id
@@ -42,6 +47,15 @@ class Book
     values = [@id]
     pieces = SqlRunner.run(sql, values)
     return pieces.map { |piece| Piece.new(piece)}
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM books
+            WHERE books.id = $1"
+    values = [id]
+    found_book = SqlRunner.run(sql, values).first()
+    # found_book_object = found_book.map { |book| Book.new(book)}
+    return Book.new(found_book)
   end
 
   def self.all()

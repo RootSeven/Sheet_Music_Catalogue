@@ -1,10 +1,13 @@
 <h1>Full Catalogue</h1>
 <% @books.each do |book| %>
-  <p><%= book.name %></p>
+  <p><%= book.name %> (<%= book.edition %>)</p>
   <% book.all_pieces().each do |piece| %>
     <ul>
       <li><%= piece.name %>, by <%= piece.composer %></li>
     </ul>
   <% end %>
+  <form action="/catalogue/<%= book.id %>/delete" method="post">
+    <input type="submit" value="Delete Book">
+  </form>
   <hr>
 <% end %>

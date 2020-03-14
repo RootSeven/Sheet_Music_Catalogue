@@ -14,7 +14,38 @@ get '/' do
   erb(:homepage)
 end
 
-get '/index' do
+get '/catalogue' do
   @books = Book.all() # Returns an array of objects
-  erb(:index)
+  erb(:index_all)
+end
+
+get '/catalogue/pieces' do
+  @pieces = Piece.all()
+  erb(:index_pieces)
+end
+
+get '/catalogue/new-piece' do
+  erb(:new_piece)
+end
+
+get '/catalogue/new-book' do
+  erb(:new_book)
+end
+
+get '/catalogue/new-piece-location' do
+  erb(:new_piece_location)
+end
+
+# POST
+
+post '/catalogue' do
+  @book = Book.new(params)
+  @book.save()
+  erb(:create_book)
+end
+
+post '/catalogue/:id/delete' do
+  book = Book.find(params[:id])
+  book.delete()
+  redirect to '/catalogue'
 end

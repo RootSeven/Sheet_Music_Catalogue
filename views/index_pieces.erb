@@ -1,0 +1,18 @@
+<h1>All Pieces</h1>
+<% @pieces.each do |piece| %>
+  <p><%= piece.name %>,
+    <% if piece.movement != -1 %>
+      <%= 'movement' %> <%= piece.movement %>
+    <% end %>
+    <% if piece.suite != ''%>
+      <%= 'from' %> <%= piece.suite %>
+    <% end %>
+    <% if piece.catalogue_name != '' %>
+      <%= piece.catalogue_name %> <%= piece.opus %>
+      <% if piece.number != -1%>
+        <%= 'No.' %> <%= piece.number %>
+      <% end %>
+    <% end %>
+    by <%= piece.composer %>
+  <hr>
+<% end %>

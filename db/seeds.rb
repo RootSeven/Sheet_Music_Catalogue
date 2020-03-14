@@ -17,7 +17,7 @@ piece1 = Piece.new({
   'catalogue_name' => 'L.',
   'opus' => 113,
   'number' => -1,
-  'composer' => 'Debussy, Claude',
+  'composer' => 'Claude Debussy',
   })
 
 piece2 = Piece.new({
@@ -27,7 +27,7 @@ piece2 = Piece.new({
   'catalogue_name' => 'L.',
   'opus' => 113,
   'number' => -1,
-  'composer' => 'Debussy, Claude',
+  'composer' => 'Claude Debussy',
   })
 
 piece3 = Piece.new({
@@ -37,7 +37,7 @@ piece3 = Piece.new({
   'catalogue_name' => '',
   'opus' => -1,
   'number' => -1,
-  'composer' => 'Astor, Miguel',
+  'composer' => 'Miguel Astor',
   })
 
 piece4 = Piece.new({
@@ -47,7 +47,7 @@ piece4 = Piece.new({
   'catalogue_name' => '',
   'opus' => -1,
   'number' => -1,
-  'composer' => 'Satie, Erik',
+  'composer' => 'Erik Satie',
   })
 
 piece5 = Piece.new({
@@ -57,7 +57,7 @@ piece5 = Piece.new({
   'catalogue_name' => 'BWV',
   'opus' => 816,
   'number' => -1,
-  'composer' => 'Bach, Johann Sebastian',
+  'composer' => 'Johann Sebastian Bach',
   })
 
 piece1.save()
