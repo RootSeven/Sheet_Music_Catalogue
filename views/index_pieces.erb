@@ -1,6 +1,6 @@
 <h1>All Pieces</h1>
 <% @pieces.each do |piece| %>
-  <p><%= piece.name %>,
+  <h2><%= piece.name %>,
     <% if piece.movement != -1 %>
       <%= 'movement' %> <%= piece.movement %>
     <% end %>
@@ -13,6 +13,11 @@
         <%= 'No.' %> <%= piece.number %>
       <% end %>
     <% end %>
-    by <%= piece.composer %>
-  <hr>
+    by <%= piece.composer %></h2>
+  <p>Appears in:<% piece.all_books.each do |book| %></p>
+    <ul>
+      <%= book.name %>
+    </ul>
+  <% end %>
+<hr>
 <% end %>

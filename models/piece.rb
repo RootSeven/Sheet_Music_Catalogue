@@ -54,6 +54,16 @@ class Piece
     SqlRunner.run(sql, values)
   end
 
+  def all_books()
+    sql = "SELECT * FROM pieces
+            INNER JOIN piece_locations ON pieces.id = piece_locations.piece_id
+            INNER JOIN books ON books.id = piece_locations.book_id
+            WHERE pieces.id = $1"
+    values = [@id]
+    books = SqlRunner.run(sql, values)
+    return books.map { |book| Book.new(book) }
+  end
+
   def self.all()
     sql = "SELECT * FROM pieces"
     pieces = SqlRunner.run(sql)

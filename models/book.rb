@@ -54,7 +54,6 @@ class Book
             WHERE books.id = $1"
     values = [id]
     found_book = SqlRunner.run(sql, values).first()
-    # found_book_object = found_book.map { |book| Book.new(book)}
     return Book.new(found_book)
   end
 

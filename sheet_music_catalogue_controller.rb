@@ -36,6 +36,11 @@ get '/catalogue/new-piece-location' do
   erb(:new_piece_location)
 end
 
+get '/catalogue/:id/edit-book' do
+  @book = Book.find(params['id'])
+  erb(:edit_book)
+end
+
 # POST
 
 post '/catalogue' do
@@ -44,7 +49,12 @@ post '/catalogue' do
   erb(:create_book)
 end
 
-post '/catalogue/:id/delete' do
+post '/catalogue/:id' do
+  Book.new(params).update()
+  redirect to '/catalogue'
+end
+
+post '/catalogue/:id/delete-book' do
   book = Book.find(params[:id])
   book.delete()
   redirect to '/catalogue'

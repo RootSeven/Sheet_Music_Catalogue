@@ -1,13 +1,19 @@
 <h1>Full Catalogue</h1>
 <% @books.each do |book| %>
-  <p><%= book.name %> (<%= book.edition %>)</p>
+  <h2><%= book.name %> (<%= book.edition %>)</h2>
   <% book.all_pieces().each do |piece| %>
     <ul>
       <li><%= piece.name %>, by <%= piece.composer %></li>
     </ul>
   <% end %>
-  <form action="/catalogue/<%= book.id %>/delete" method="post">
+
+  <form action="/catalogue/<%= book.id %>/delete-book" method="post">
     <input type="submit" value="Delete Book">
   </form>
+
+  <form action="/catalogue/<%= book.id %>/edit-book" method="get">
+    <input type="submit" value="Edit Book">
+  </form>
+
   <hr>
 <% end %>
