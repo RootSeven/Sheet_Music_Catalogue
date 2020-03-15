@@ -14,10 +14,29 @@
       <% end %>
     <% end %>
     by <%= piece.composer %></h2>
+
+    <form method="get" action="/catalogue/<%= piece.id %>/edit-piece">
+      <input
+      type="submit"
+      value="Edit Piece">
+    </form>
+
+    <form method="post" action="/catalogue/<%= piece.id %>/delete-piece">
+      <input
+      type="submit"
+      value="Delete Piece">
+    </form>
+
   <p>Appears in:<% piece.all_books.each do |book| %></p>
     <ul>
       <%= book.name %>
     </ul>
+    <form method="get" action="/catalogue">
+      <input
+      type="submit"
+      value="Remove from This Book">
+    </form>
   <% end %>
+
 <hr>
 <% end %>

@@ -15,7 +15,7 @@ get '/' do
 end
 
 get '/catalogue' do
-  @books = Book.all() # Returns an array of objects
+  @books = Book.all()
   erb(:index_all)
 end
 
@@ -40,6 +40,11 @@ get '/catalogue/new-piece-location' do
   erb(:new_piece_location)
 end
 
+get '/catalogue/:id/edit-piece' do
+  @piece = Piece.find(params['id'])
+  erb(:edit_piece)
+end
+
 get '/catalogue/:id/edit-book' do
   @book = Book.find(params['id'])
   erb(:edit_book)
@@ -54,6 +59,15 @@ post '/catalogue' do
 end
 
 post '/catalogue/create_piece' do
+  if params['movement'].to_i < 1
+    params['movement'] = -1
+  end
+  if params['opus'].to_i < 1
+    params['opus'] = -1
+  end
+  if params['number'].to_i < 1
+    params['number'] = -1
+  end
   @piece = Piece.new(params)
   @piece.save()
   redirect to '/catalogue/pieces'
@@ -62,6 +76,17 @@ end
 post '/catalogue/:id' do
   Book.new(params).update()
   redirect to '/catalogue'
+end
+
+post '/catalogue/:id/update-piece' do
+  Piece.new(params).update()
+  redirect to '/catalogue/pieces'
+end
+
+post '/catalogue/:id/delete-piece' do
+  piece = Piece.find(params[:id])
+  piece.delete()
+  redirect to '/catalogue/pieces'
 end
 
 post '/catalogue/:id/delete-book' do

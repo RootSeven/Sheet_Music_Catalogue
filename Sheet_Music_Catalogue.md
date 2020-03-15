@@ -5,12 +5,12 @@ A relational database which allows the user to keep track of their books of shee
 #### MVP
 
 The app should allow the user to:
-- create and edit their books of sheet music.
-- create and edit the pieces of music they own.
+x create and edit their books of sheet music.
+x create and edit the pieces of music they own.
 - associate certain pieces with certain books of sheet music.
 x see a list of all the books of sheet music they own, and their contents.
-- see the contents of a specific book they own.
-- see all of the locations of a specific piece (e.g. a Chopin Nocturne may be found in both a compilation of Chopin Nocturnes and an exam syllabus book, so it would show both of them).
+x see the contents of a specific book they own.
+x see all of the locations of a specific piece (e.g. a Chopin Nocturne may be found in both a compilation of Chopin Nocturnes and an exam syllabus book, so it would show both of them).
 
 #### Possible Extensions
 
