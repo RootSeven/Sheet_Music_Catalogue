@@ -83,14 +83,20 @@ post '/catalogue/:id/update-piece' do
   redirect to '/catalogue/pieces'
 end
 
+post '/catalogue/:book_id/:piece_id/delete-piece-location' do
+  relationship = PieceLocation.find(params['book_id'], params['piece_id'])
+  relationship.delete()
+  redirect to '/catalogue'
+end
+
 post '/catalogue/:id/delete-piece' do
-  piece = Piece.find(params[:id])
+  piece = Piece.find(params['id'])
   piece.delete()
   redirect to '/catalogue/pieces'
 end
 
 post '/catalogue/:id/delete-book' do
-  book = Book.find(params[:id])
+  book = Book.find(params['id'])
   book.delete()
   redirect to '/catalogue'
 end

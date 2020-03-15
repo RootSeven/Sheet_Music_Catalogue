@@ -34,6 +34,21 @@ class PieceLocation
     SqlRunner.run(sql, values)
   end
 
+  def delete()
+    sql = "DELETE FROM piece_locations WHERE piece_locations.id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.find(bk_id, pc_id)
+    sql = "SELECT * FROM piece_locations
+            WHERE (piece_locations.book_id, piece_locations.piece_id)
+            = ($1, $2)"
+    values = [bk_id, pc_id]
+    found_relationship = SqlRunner.run(sql, values).first()
+    return PieceLocation.new(found_relationship)
+  end
+
   def self.all()
     sql = "SELECT * FROM piece_locations"
     piece_location_array = SqlRunner.run(sql)
