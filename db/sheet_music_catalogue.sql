@@ -21,6 +21,6 @@ CREATE TABLE books (
 
 CREATE TABLE piece_locations (
   id SERIAL PRIMARY KEY,
-  book_id INT REFERENCES books(id),
-  piece_id INT REFERENCES pieces(id)
+  book_id INT REFERENCES books(id) ON DELETE CASCADE,
+  piece_id INT REFERENCES pieces(id) ON DELETE CASCADE
 );

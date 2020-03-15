@@ -6,11 +6,13 @@
       <li><%= piece.name %>, by <%= piece.composer %></li>
     </ul>
 
-    <form action="/catalogue/<%= book.id %>/<%= piece.id %>/delete-piece-location" method="get">
+    <form action="/catalogue/<%= book.id %>/<%= piece.id %>/delete-piece-location" method="post">
       <input type="submit" value="Remove Piece from This Book">
     </form>
 
   <% end %>
+
+  <hr>
 
   <form action="/catalogue/<%= book.id %>/delete-book" method="post">
     <input type="submit" value="Delete Book">

@@ -32,11 +32,9 @@ get '/catalogue/new-book' do
   erb(:new_book)
 end
 
-get '/catalogue/new-piece' do
-  erb(:new_piece)
-end
-
 get '/catalogue/new-piece-location' do
+  @all_pieces = Piece.all()
+  @all_books = Book.all()
   erb(:new_piece_location)
 end
 
@@ -71,6 +69,12 @@ post '/catalogue/create_piece' do
   @piece = Piece.new(params)
   @piece.save()
   redirect to '/catalogue/pieces'
+end
+
+post '/catalogue/create-piece-location' do
+  @piece_location = PieceLocation.new(params)
+  @piece_location.save()
+  redirect to '/catalogue'
 end
 
 post '/catalogue/:id' do

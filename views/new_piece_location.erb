@@ -1,1 +1,21 @@
 <h1>Add Piece to Book</h1>
+
+<form action="/catalogue/create-piece-location" method="post">
+
+  <label for="book-field">Book:</label>
+  <select name="book_id" id="book-field">
+    <% @all_books.each do |book| %>
+      <option value="<%= book.id %>"><%= book.name %></option>
+    <% end %>
+  </select>
+
+  <label for="piece-field">Piece:</label>
+  <select name="piece_id" id="piece-field">
+    <% @all_pieces.each do |piece| %>
+      <option value="<%= piece.id %>"><%= piece.name %>, <%= piece.suite %>, <%= piece.composer %></option>
+    <% end %>
+  </select>
+
+  <input type="submit" value="Add Piece to Book">
+
+</form>
