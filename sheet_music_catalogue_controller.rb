@@ -16,36 +16,36 @@ end
 
 get '/catalogue' do
   @books = Book.all()
-  erb(:index_all)
+  erb(:all_index)
 end
 
 get '/catalogue/pieces' do
   @pieces = Piece.all()
-  erb(:index_pieces)
+  erb(:piece_index2)
 end
 
 get '/catalogue/new-piece' do
-  erb(:new_piece)
+  erb(:piece_new)
 end
 
 get '/catalogue/new-book' do
-  erb(:new_book)
+  erb(:book_new)
 end
 
 get '/catalogue/new-piece-location' do
   @all_pieces = Piece.all()
   @all_books = Book.all()
-  erb(:new_piece_location)
+  erb(:piece_location_new)
 end
 
 get '/catalogue/:id/edit-piece' do
   @piece = Piece.find(params['id'])
-  erb(:edit_piece)
+  erb(:piece_edit)
 end
 
 get '/catalogue/:id/edit-book' do
   @book = Book.find(params['id'])
-  erb(:edit_book)
+  erb(:book_edit)
 end
 
 # POST
@@ -53,10 +53,10 @@ end
 post '/catalogue' do
   @book = Book.new(params)
   @book.save()
-  erb(:create_book)
+  redirect to '/catalogue'
 end
 
-post '/catalogue/create_piece' do
+post '/catalogue/create-piece' do
   if params['movement'].to_i < 1
     params['movement'] = -1
   end

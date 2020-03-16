@@ -61,6 +61,16 @@ class Piece
     SqlRunner.run(sql, values)
   end
 
+  def filled_fields()
+    return filled_field = {
+      'suite' => (@suite != '') ? true : false,
+      'movement' => (@movement != -1) ? true : false,
+      'catalogue_name' => (@catalogue_name != '') ? true : false,
+      'opus' => (@opus != -1) ? true : false,
+      'number' => (@number != -1) ? true : false,
+    }
+  end
+
   def all_books()
     sql = "SELECT * FROM pieces
             INNER JOIN piece_locations ON pieces.id = piece_locations.piece_id

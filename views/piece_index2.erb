@@ -1,0 +1,44 @@
+<h1>All Pieces</h1>
+
+  <% @pieces.each do |piece| %>
+      <% filled_fields = piece.filled_fields() %>
+       <h2><%= piece.name %>
+        <% if filled_fields['movement'] == true %>
+          movement <%= piece.movement %>
+        <% end %>
+        <% if filled_fields['suite'] == true %>
+          from <%= piece.suite %>
+        <% end %>
+        <% if (filled_fields['catalogue_name'] == true) && (filled_fields['opus'] == true) && (filled_fields['number'] == true) %>
+          (<%= piece.catalogue_name %> <%= piece.opus %> No. <%= piece.number %>)
+        <% end %>
+        <% if (filled_fields['catalogue_name'] == true) && (filled_fields['opus'] == true) && (filled_fields['number'] == false) %>
+          (<%= piece.catalogue_name %> <%= piece.opus %>)
+        <% end %></h2>
+        <p>by <%= piece.composer %></p>
+
+    <form method="get" action="/catalogue/<%= piece.id %>/edit-piece">
+      <input
+      type="submit"
+      value="Edit Piece">
+    </form>
+
+    <form method="post" action="/catalogue/<%= piece.id %>/delete-piece">
+      <input
+      type="submit"
+      value="Delete Piece">
+    </form>
+
+  <p>Appears in:<% piece.all_books.each do |book| %></p>
+    <ul>
+      <%= book.name %>
+    </ul>
+    <form method="post" action="/catalogue/<%= book.id %>/<%= piece.id %>/delete-piece-location">
+      <input
+      type="submit"
+      value="Remove Piece from This Book">
+    </form>
+  <% end %>
+
+<hr>
+<% end %>
