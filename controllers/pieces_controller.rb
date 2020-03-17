@@ -6,7 +6,7 @@ also_reload('../models/*')
 
 get '/catalogue/pieces' do # PIECE
   @pieces = Piece.all()
-  erb(:piece_index2)
+  erb(:piece_index)
 end
 
 get '/catalogue/new-piece' do # PIECE
