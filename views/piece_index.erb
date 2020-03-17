@@ -9,10 +9,10 @@
         <% if filled_fields['suite'] == true %>
           from <%= piece.suite %>
         <% end %>
-        <% if (filled_fields['catalogue_name'] == true) && (filled_fields['opus'] == true) && (filled_fields['number'] == true) %>
-          (<%= piece.catalogue_name %> <%= piece.opus %> No. <%= piece.number %>)
+        <% if (filled_fields['catalogue_name'] == true) && (filled_fields['opus'] == true) && (filled_fields['work_number'] == true) %>
+          (<%= piece.catalogue_name %> <%= piece.opus %> No. <%= piece.work_number %>)
         <% end %>
-        <% if (filled_fields['catalogue_name'] == true) && (filled_fields['opus'] == true) && (filled_fields['number'] == false) %>
+        <% if (filled_fields['catalogue_name'] == true) && (filled_fields['opus'] == true) && (filled_fields['work_number'] == false) %>
           (<%= piece.catalogue_name %> <%= piece.opus %>)
         <% end %></h2>
         <p>by <%= piece.composer %></p>

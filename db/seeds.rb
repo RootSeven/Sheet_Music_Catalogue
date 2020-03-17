@@ -16,7 +16,7 @@ piece1 = Piece.new({
   'movement' => 1,
   'catalogue_name' => 'L.',
   'opus' => 113,
-  'number' => -1,
+  'work_number' => -1,
   'composer' => 'Claude Debussy',
   })
 
@@ -26,7 +26,7 @@ piece2 = Piece.new({
   'movement' => 2,
   'catalogue_name' => 'L.',
   'opus' => 113,
-  'number' => -1,
+  'work_number' => -1,
   'composer' => 'Claude Debussy',
   })
 
@@ -36,7 +36,7 @@ piece3 = Piece.new({
   'movement' => 7,
   'catalogue_name' => '',
   'opus' => -1,
-  'number' => -1,
+  'work_number' => -1,
   'composer' => 'Miguel Astor',
   })
 
@@ -46,7 +46,7 @@ piece4 = Piece.new({
   'movement' => -1,
   'catalogue_name' => '',
   'opus' => -1,
-  'number' => -1,
+  'work_number' => -1,
   'composer' => 'Erik Satie',
   })
 
@@ -56,7 +56,7 @@ piece5 = Piece.new({
   'movement' => 7,
   'catalogue_name' => 'BWV',
   'opus' => 816,
-  'number' => -1,
+  'work_number' => -1,
   'composer' => 'Johann Sebastian Bach',
   })
 
@@ -125,6 +125,3 @@ piece_location3.save()
 piece_location4.save()
 piece_location5.save()
 piece_location6.save()
-
-binding.pry
-nil

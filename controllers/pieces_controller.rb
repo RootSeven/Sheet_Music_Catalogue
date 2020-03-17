@@ -1,5 +1,6 @@
 require('sinatra')
 require('sinatra/contrib/all')
+require('pry-byebug')
 
 require_relative('../models/piece.rb')
 also_reload('../models/*')
@@ -25,8 +26,8 @@ post '/catalogue/create-piece' do # PIECE
   if params['opus'].to_i < 1
     params['opus'] = -1
   end
-  if params['number'].to_i < 1
-    params['number'] = -1
+  if params['work_number'].to_i < 1
+    params['work_number'] = -1
   end
   @piece = Piece.new(params)
   @piece.save()

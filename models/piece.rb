@@ -9,7 +9,7 @@ require_relative('piece_location.rb')
 class Piece
 
   attr_reader :id
-  attr_accessor :name, :suite, :movement, :catalogue_name, :opus, :number, :composer
+  attr_accessor :name, :suite, :movement, :catalogue_name, :opus, :work_number, :composer
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -18,7 +18,7 @@ class Piece
     @movement = options['movement'].to_i
     @catalogue_name = options['catalogue_name']
     @opus = options['opus'].to_i
-    @number = options['number'].to_i
+    @work_number = options['work_number'].to_i
     @composer = options['composer']
   end
 
@@ -29,7 +29,7 @@ class Piece
             movement,
             catalogue_name,
             opus,
-            number,
+            work_number,
             composer)
           VALUES
           ($1, $2, $3, $4, $5, $6, $7)
@@ -39,7 +39,7 @@ class Piece
               @movement,
               @catalogue_name,
               @opus,
-              @number,
+              @work_number,
               @composer]
     piece_hash = SqlRunner.run(sql, values).first()
     @id = piece_hash['id'].to_i
@@ -47,11 +47,11 @@ class Piece
 
   def update()
     sql = "UPDATE pieces SET
-            (name, suite, movement, catalogue_name, opus, number, composer)
+            (name, suite, movement, catalogue_name, opus, work_number, composer)
             =
             ($1, $2, $3, $4, $5, $6, $7)
             WHERE id = $8"
-    values = [@name, @suite, @movement, @catalogue_name, @opus, @number, @composer, @id]
+    values = [@name, @suite, @movement, @catalogue_name, @opus, @work_number, @composer, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -67,7 +67,7 @@ class Piece
       'movement' => (@movement != -1) ? true : false,
       'catalogue_name' => (@catalogue_name != '') ? true : false,
       'opus' => (@opus != -1) ? true : false,
-      'number' => (@number != -1) ? true : false,
+      'work_number' => (@work_number != -1) ? true : false,
     }
   end
 

@@ -9,7 +9,7 @@ CREATE TABLE pieces (
   movement INT,
   catalogue_name VARCHAR(255),
   opus INT,
-  number INT,
+  work_number INT,
   composer VARCHAR(255)
 );
 
