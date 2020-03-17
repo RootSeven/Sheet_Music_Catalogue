@@ -7,23 +7,14 @@
   </head>
   <body>
     <nav>
-
-      <ul>
-
-        <li><a href="/">Home</a></li>
-        <li>Show</li>
-
-         <ul>
-           <li><a href="/catalogue/books">Full Catalogue</a></li>
-           <li><a href="/catalogue/pieces">All Pieces in Catalogue</a></li>
-         </ul>
-
-        <li>Create</li>
-
-        <ul>
-          <li><a href="/catalogue/new-book">Add New Book</a></li>
-          <li><a href="/catalogue/new-piece">Create New Piece</a></li>
-          <li><a href="/catalogue/new-piece-location">Add Piece to Book</a></li>
+      <div class="navigation-bar">
+        <a href="/" class="bar-item">Home</a>
+        <a href="/catalogue/books" class="bar-item">Full Catalogue</a>
+        <a href="/catalogue/pieces" class="bar-item">All Pieces in Catalogue</a>
+        <a href="/catalogue/new-book" class="bar-item">Add New Book</a>
+        <a href="/catalogue/new-piece" class="bar-item">Create New Piece</a>
+        <a href="/catalogue/new-piece-location" class="bar-item">Add Piece to Book</a>
+      </div>
     </nav>
     <%= yield %>
   </body>
