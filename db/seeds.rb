@@ -16,7 +16,7 @@ piece1 = Piece.new({
   'movement' => 1,
   'catalogue_name' => 'L.',
   'opus' => 113,
-  'work_number' => -1,
+  'work_number' => 0,
   'composer' => 'Claude Debussy',
   })
 
@@ -26,7 +26,7 @@ piece2 = Piece.new({
   'movement' => 2,
   'catalogue_name' => 'L.',
   'opus' => 113,
-  'work_number' => -1,
+  'work_number' => 0,
   'composer' => 'Claude Debussy',
   })
 
@@ -35,18 +35,18 @@ piece3 = Piece.new({
   'suite' => 'Valses venezolanos',
   'movement' => 7,
   'catalogue_name' => '',
-  'opus' => -1,
-  'work_number' => -1,
+  'opus' => 0,
+  'work_number' => 0,
   'composer' => 'Miguel Astor',
   })
 
 piece4 = Piece.new({
   'name' => 'Je te veux',
   'suite' => '',
-  'movement' => -1,
+  'movement' => 0,
   'catalogue_name' => '',
-  'opus' => -1,
-  'work_number' => -1,
+  'opus' => 0,
+  'work_number' => 0,
   'composer' => 'Erik Satie',
   })
 
@@ -56,7 +56,7 @@ piece5 = Piece.new({
   'movement' => 7,
   'catalogue_name' => 'BWV',
   'opus' => 816,
-  'work_number' => -1,
+  'work_number' => 0,
   'composer' => 'Johann Sebastian Bach',
   })
 
