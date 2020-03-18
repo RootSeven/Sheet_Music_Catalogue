@@ -1,5 +1,8 @@
 # Sheet Music Catalogue
-Sheet Music Catalogue is a relational database with a browser-based front-end that you can use to store the details of books of sheet music and their contents. It was coded in Ruby, and uses Sinatra to run in a browser.
+
+Repository link: https://github.com/RootSeven/Sheet_Music_Catalogue
+
+Sheet Music Catalogue is a relational database with a browser-based front-end that you can use to store the details of books of sheet music and their contents. It was coded in Ruby, and uses Sinatra to run in a browser. The database was created using PostgreSQL, and the views were created using HTML and CSS.
 
 ## Using the App
 To use this app, you must create a database called sheet_music_catalogue and run the SQL file. On Mac, you may do this by navigating to the Sheet_Music_Catalogue folder and using the commands:
