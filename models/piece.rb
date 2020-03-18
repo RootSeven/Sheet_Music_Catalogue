@@ -103,15 +103,15 @@ class Piece
 
   def make_valid_numbers()
     if @movement < 1
-      @opus = 0
+      @movement = 0
     end
 
     if @opus < 1
       @opus = 0
     end
 
-    if @movement < 1
-      @movement = 0
+    if @work_number < 1
+      @work_number = 0
     end
 
   end
