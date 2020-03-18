@@ -20,15 +20,6 @@ get '/catalogue/:id/edit-piece' do # PIECE
 end
 
 post '/catalogue/create-piece' do # PIECE
-  if params['movement'].to_i < 1
-    params['movement'] = -1
-  end
-  if params['opus'].to_i < 1
-    params['opus'] = -1
-  end
-  if params['work_number'].to_i < 1
-    params['work_number'] = -1
-  end
   @piece = Piece.new(params)
   @piece.save()
   redirect to '/catalogue/pieces'

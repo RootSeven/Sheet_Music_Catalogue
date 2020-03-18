@@ -23,6 +23,7 @@ class Piece
   end
 
   def save()
+    make_valid_numbers()
     sql = "INSERT INTO pieces
           (name,
             suite,
@@ -46,6 +47,7 @@ class Piece
   end
 
   def update()
+    make_valid_numbers()
     sql = "UPDATE pieces SET
             (name, suite, movement, catalogue_name, opus, work_number, composer)
             =
@@ -71,16 +73,6 @@ class Piece
     }
   end
 
-  def all_books()
-    sql = "SELECT * FROM pieces
-            INNER JOIN piece_locations ON pieces.id = piece_locations.piece_id
-            INNER JOIN books ON books.id = piece_locations.book_id
-            WHERE pieces.id = $1"
-    values = [@id]
-    books = SqlRunner.run(sql, values)
-    return books.map { |book| Book.new(book) }
-  end
-
   def self.find(id)
     sql = "SELECT * FROM pieces
             WHERE pieces.id = $1"
@@ -98,6 +90,31 @@ class Piece
   def self.delete_all()
     sql = "DELETE FROM pieces"
     SqlRunner.run(sql)
+  end
+
+  def all_books()
+    sql = "SELECT * FROM pieces
+            INNER JOIN piece_locations ON pieces.id = piece_locations.piece_id
+            INNER JOIN books ON books.id = piece_locations.book_id
+            WHERE pieces.id = $1"
+    values = [@id]
+    books = SqlRunner.run(sql, values)
+    return books.map { |book| Book.new(book) }
+  end
+
+  def make_valid_numbers()
+    if @movement < 1
+      @opus = 0
+    end
+
+    if @opus < 1
+      @opus = 0
+    end
+
+    if @movement < 1
+      @movement = 0
+    end
+
   end
 
 end
