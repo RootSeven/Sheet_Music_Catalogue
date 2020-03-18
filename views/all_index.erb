@@ -3,12 +3,14 @@
   <h2><%= book.name %> (<%= book.edition %>)</h2>
   <% book.all_pieces().each do |piece| %>
     <ul>
-      <li><%= piece.name %>, by <%= piece.composer %></li>
-    </ul>
+      <li><%= piece.name %>, by <%= piece.composer %>
 
-    <form action="/catalogue/<%= book.id %>/<%= piece.id %>/delete-piece-location" method="post">
-      <input type="submit" value="Remove Piece from This Book">
-    </form>
+        <form action="/catalogue/<%= book.id %>/<%= piece.id %>/delete-piece-location" method="post">
+          <input type="submit" value="Remove Piece from This Book">
+        </form>
+
+      </li>
+    </ul>
 
   <% end %>
 

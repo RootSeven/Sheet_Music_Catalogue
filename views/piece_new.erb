@@ -1,46 +1,50 @@
 <h1>Create New Piece</h1>
 <form action="/catalogue/create-piece" method="post">
-  <label for="name-field">Piece Name</label>
-    <input
-    type="text"
-    name="name"
-    id="name-field">
 
-    <label for="suite-field">Suite:</label>
-    <input
-    type = "text"
-    name = "suite"
-    id = "suite-field">
+  <fieldset>
+    <legend>Piece Details:</legend>
+    <label for="name-field">Piece Name</label>
+      <input
+      type="text"
+      name="name"
+      id="name-field"><br>
 
-    <label for="movement-field">Movement:</label>
-    <input
-    type = "number"
-    name = "movement"
-    id = "movement-field">
+      <label for="composer-field">Composer:</label>
+      <input
+      type = "text"
+      name = "composer"
+      id = "composer-field"><br>
 
-    <label for="catalogue-name-field">Catalogue Prefix:</label>
-    <input
-    type = "text"
-    name = "catalogue_name"
-    id = "catalogue_name-field">
+      <label for="suite-field">Suite:</label>
+      <input
+      type = "text"
+      name = "suite"
+      id = "suite-field">
 
-    <label for="opus-field">Opus:</label>
-    <input
-    type = "number"
-    name = "opus"
-    id = "opus-field">
+      <label for="movement-field">Movement:</label>
+      <input
+      type = "number"
+      name = "movement"
+      id = "movement-field"><br>
 
-    <label for="work-number-field">Number:</label>
-    <input
-    type = "number"
-    name = "work_number"
-    id = "work-number-field">
+      <label for="catalogue-name-field">Catalogue Prefix:</label>
+      <input
+      type = "text"
+      name = "catalogue_name"
+      id = "catalogue_name-field">
 
-    <label for="composer-field">Composer:</label>
-    <input
-    type = "text"
-    name = "composer"
-    id = "composer-field">
+      <label for="opus-field">Opus:</label>
+      <input
+      type = "number"
+      name = "opus"
+      id = "opus-field">
+
+      <label for="work-number-field">Number:</label>
+      <input
+      type = "number"
+      name = "work_number"
+      id = "work-number-field">
+  </fieldset>
 
   <input type = "submit" value = "Create New Piece">
 

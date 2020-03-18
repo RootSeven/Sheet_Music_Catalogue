@@ -32,12 +32,14 @@
   <p>Appears in:<% piece.all_books.each do |book| %></p>
     <ul>
       <%= book.name %>
+
+      <form method="post" action="/catalogue/<%= book.id %>/<%= piece.id %>/delete-piece-location">
+        <input
+        type="submit"
+        value="Remove Piece from This Book">
+      </form>
+
     </ul>
-    <form method="post" action="/catalogue/<%= book.id %>/<%= piece.id %>/delete-piece-location">
-      <input
-      type="submit"
-      value="Remove Piece from This Book">
-    </form>
   <% end %>
 
 <hr>
