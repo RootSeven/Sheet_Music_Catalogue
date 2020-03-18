@@ -14,6 +14,7 @@ end
 
 post '/catalogue/create-piece-location' do # PIECE LOCATION
   @piece_location = PieceLocation.new(params)
+  
   @piece_location.save()
   redirect to '/catalogue/books'
 end

@@ -17,14 +17,16 @@ class PieceLocation
   end
 
   def save()
-    sql = "INSERT INTO piece_locations
-            (book_id, piece_id)
-            VALUES
-            ($1, $2)
-            RETURNING id"
-    values = [@book_id, @piece_id]
-    piece_location_hash = SqlRunner.run(sql, values).first()
-    @id = piece_location_hash['id'].to_i
+    if PieceLocation.find(@book_id, @piece_id).nil?
+      sql = "INSERT INTO piece_locations
+              (book_id, piece_id)
+              VALUES
+              ($1, $2)
+              RETURNING id"
+      values = [@book_id, @piece_id]
+      piece_location_hash = SqlRunner.run(sql, values).first()
+      @id = piece_location_hash['id'].to_i
+    end
   end
 
   def update()
@@ -46,7 +48,7 @@ class PieceLocation
             = ($1, $2)"
     values = [bk_id, pc_id]
     found_relationship = SqlRunner.run(sql, values).first()
-    return PieceLocation.new(found_relationship)
+    return found_relationship.nil? != true ? PieceLocation.new(found_relationship) : nil
   end
 
   def self.all()
