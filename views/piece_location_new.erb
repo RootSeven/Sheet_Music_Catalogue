@@ -12,7 +12,12 @@
   <label for="piece-field">Piece:</label>
   <select name="piece_id" id="piece-field">
     <% @all_pieces.each do |piece| %>
-      <option value="<%= piece.id %>"><%= piece.name %>, <%= piece.suite %>, <%= piece.composer %></option>
+      <% filled_field = piece.filled_fields %>
+      <% if filled_field['suite'] == true %>
+        <option value="<%= piece.id %>"><%= piece.name %>, <%= piece.suite %>, <%= piece.composer %></option>
+      <% else %>
+        <option value="<%= piece.id %>"><%= piece.name %>, <%= piece.composer %></option>
+      <% end %>
     <% end %>
   </select>
 
