@@ -12,4 +12,27 @@ With this app, you can:
 - View the contents of each Book in your collection
 - View which Books a specific Piece in your collection may be found in
 
-## Guide
+### Guide
+Use the navigation bar at the top of the page to navigate this app.
+
+## Home
+Home contains an explanation of how to use the app.
+
+## Full Catalogue
+This page allows you to view you collection by Book, with the Book's contents below.
+
+## All Pieces in Catalogue
+This page allows you to view your collection by Piece, with the Books the Piece appears in below.
+
+## Books
+
+# Add New Book
+This form allows you to add a new Book. Type in the Book's Name and Edition, and press the Submit button. You will be redirected to the Full Catalogue page.
+
+# Edit Book
+Below a Book's details on the Full Catalogue is an Edit Book button. Click this to open a form which you can use to edit the details of a Book. Click Update Book and you will be redirected to the Full Catalogue page, with the Book's details updated.
+
+# Delete Book
+Below the Edit Book button is the Delete Book button. Click this button to delete the Book from your collection. Any Pieces which were in this Book will now no longer have this Book in their list of Books they appear in.
+
+## Pieces
