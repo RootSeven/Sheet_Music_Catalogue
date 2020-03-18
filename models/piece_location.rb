@@ -44,12 +44,6 @@ class PieceLocation
     return found_relationship.nil? != true ? PieceLocation.new(found_relationship) : nil
   end
 
-  def self.all()
-    sql = "SELECT * FROM piece_locations"
-    piece_location_array = SqlRunner.run(sql)
-    return piece_location_array.map { |piece_location| PieceLocation.new(piece_locations)}
-  end
-
   def self.delete_all()
     sql = "DELETE FROM piece_locations"
     SqlRunner.run(sql)

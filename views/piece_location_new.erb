@@ -5,7 +5,7 @@
   <label for="book-field">Book:</label>
   <select name="book_id" id="book-field">
     <% @all_books.each do |book| %>
-      <option value="<%= book.id %>"><%= book.name %></option>
+      <option value="<%= book.id %>"><%= book.name %> (<%= book.edition %>)</option>
     <% end %>
   </select>
 
