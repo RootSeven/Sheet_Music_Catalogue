@@ -11,6 +11,11 @@ a {
   text-decoration: none;
 }
 
+select {
+  font-family: Georgia;
+  font-size: 15px;
+}
+
 input {
   font-family: Georgia;
   transition: width 0.5s ease-in-out;
@@ -18,14 +23,15 @@ input {
   padding: 5px;
   margin: 5px;
   border: 2px solid #4FB286;
+  font-size: 15px;
+}
+
+input[type=text] {
+  width: 300px;
 }
 
 input[type=submit] {
-  width: 200px;
-}
-
-input[type=text]:focus {
-  width: 50%;
+  width: 300px;
 }
 
 select {
@@ -34,11 +40,6 @@ select {
   padding: 5px;
   margin: 5px;
   border: 2px solid #4FB286;
-}
-
-a:hover {
-  text-decoration: none;
-  background-color: #3C896D;
 }
 
 .navigation-bar {
@@ -50,6 +51,11 @@ a:hover {
   background-color: #4D685A;
   padding-left: 50px;
   padding-right: 50px;
+}
+
+.bar-item:hover {
+  text-decoration: none;
+  background-color: #3C896D;
 }
 
 li {
