@@ -29,13 +29,6 @@ class PieceLocation
     end
   end
 
-  def update()
-    sql = "UPDATE piece_locations SET (book_id, piece_id) = ($1, $2)
-          WHERE id = $3"
-    values = [@book_id, @piece_id, @id]
-    SqlRunner.run(sql, values)
-  end
-
   def delete()
     sql = "DELETE FROM piece_locations WHERE piece_locations.id = $1"
     values = [@id]

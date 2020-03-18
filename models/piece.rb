@@ -113,7 +113,6 @@ class Piece
     if @work_number < 1
       @work_number = 0
     end
-
   end
 
 end

@@ -1,62 +1,64 @@
 <h1>Edit Piece</h1>
 
-<form action="/catalogue/<%= @piece.id %>/update-piece" method="post">
+<form action="/catalogue/<%= @piece.id %>/update-piece" method="post" autocomplete="off">
 
-  <label for="name-field">Piece Name:</label>
-    <input
-    type="text"
-    name="name"
-    value="<%= @piece.name %>"
-    id="name-field"
-    />
+  <fieldset>
+    <legend>Basic Details:</legend>
+    <label for="name-field">Piece Name:</label>
+      <input
+      type="text"
+      name="name"
+      value="<%= @piece.name %>"
+      id="name-field"><br>
 
-  <label for="suite-field">Suite:</label>
-    <input
-    type="text"
-    name="suite"
-    value="<%= @piece.suite %>"
-    id="suite-field"
-    />
+    <label for="composer-field">Composer:</label>
+      <input
+      type="text"
+      name="composer"
+      id="composer-field"
+      value="<%= @piece.composer %>"><br>
+  </fieldset>
 
-  <label for="movement-field">Movement:</label>
-    <input
-    type="number"
-    name="movement"
-    value="<%= @piece.movement %>"
-    id="movement-field"
-    />
+  <fieldset>
+    <legend>Suite Details:</legend>
+    <label for="suite-field">Suite:</label>
+      <input
+      type="text"
+      name="suite"
+      value="<%= @piece.suite %>"
+      id="suite-field"><br>
 
-  <label for="catalogue-name-field">Catalogue Prefix:</label>
-    <input
-    type="text"
-    name="catalogue_name"
-    value="<%= @piece.catalogue_name %>"
-    id="catalogue-name-field"
-    />
+    <label for="movement-field">Movement:</label>
+      <input
+        type="number"
+        name="movement"
+        value="<%= @piece.movement %>"
+        id="movement-field"><br>
+  </fieldset>
 
-  <label for="opus-field">Opus:</label>
-    <input
-    type="number"
-    name="opus"
-    id="opus-field"
-    value="<%= @piece.opus %>"
-    />
+  <fieldset>
+    <legend>Opus Details:</legend>
+    <label for="catalogue-name-field">Catalogue Prefix:</label>
+      <input
+      type="text"
+      name="catalogue_name"
+      value="<%= @piece.catalogue_name %>"
+      id="catalogue-name-field"><br>
 
-  <label for="work-number-field">Number:</label>
-    <input
-    type="number"
-    name="work_number"
-    id="work-number-field"
-    value="<%= @piece.work_number %>"
-    />
+      <label for="opus-field">Opus:</label>
+        <input
+        type="number"
+        name="opus"
+        id="opus-field"
+        value="<%= @piece.opus %>">
 
-  <label for="composer-field">Composer:</label>
-    <input
-    type="text"
-    name="composer"
-    id="composer-field"
-    value="<%= @piece.composer %>"
-    />
+        <label for="work-number-field">Number:</label>
+          <input
+          type="number"
+          name="work_number"
+          id="work-number-field"
+          value="<%= @piece.work_number %>">
+    </fieldset>
 
   <input type="submit" value="Update Piece">
 
