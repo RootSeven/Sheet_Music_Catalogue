@@ -66,10 +66,10 @@ class Piece
   def filled_fields()
     return filled_field = {
       'suite' => (@suite != '') ? true : false,
-      'movement' => (@movement != -1) ? true : false,
+      'movement' => (@movement != 0) ? true : false,
       'catalogue_name' => (@catalogue_name != '') ? true : false,
-      'opus' => (@opus != -1) ? true : false,
-      'work_number' => (@work_number != -1) ? true : false,
+      'opus' => (@opus != 0) ? true : false,
+      'work_number' => (@work_number != 0) ? true : false,
     }
   end
 
