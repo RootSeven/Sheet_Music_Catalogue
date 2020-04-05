@@ -1,26 +1,31 @@
 <h1>Add Piece to Book</h1>
 
-<form action="/catalogue/create-piece-location" method="post">
+<% if @all_pieces.length > 0 && @all_books.length > 0 %>
 
-  <label for="book-field">Book:</label>
-  <select name="book_id" id="book-field">
-    <% @all_books.each do |book| %>
-      <option value="<%= book.id %>"><%= book.name %> (<%= book.edition %>)</option>
-    <% end %>
-  </select>
+  <form action="/catalogue/create-piece-location" method="post">
 
-  <label for="piece-field">Piece:</label>
-  <select name="piece_id" id="piece-field">
-    <% @all_pieces.each do |piece| %>
-      <% filled_field = piece.filled_fields %>
-      <% if filled_field['suite'] == true %>
-        <option value="<%= piece.id %>"><%= piece.name %>, <%= piece.suite %>, <%= piece.composer %></option>
-      <% else %>
-        <option value="<%= piece.id %>"><%= piece.name %>, <%= piece.composer %></option>
+    <label for="book-field">Book:</label>
+    <select name="book_id" id="book-field">
+      <% @all_books.each do |book| %>
+        <option value="<%= book.id %>"><%= book.name %> (<%= book.edition %>)</option>
       <% end %>
-    <% end %>
-  </select>
+    </select>
 
-  <input type="submit" value="Add Piece to Book">
+    <label for="piece-field">Piece:</label>
+    <select name="piece_id" id="piece-field">
+      <% @all_pieces.each do |piece| %>
+        <% filled_field = piece.filled_fields %>
+        <% if filled_field['suite'] == true %>
+          <option value="<%= piece.id %>"><%= piece.name %>, <%= piece.suite %>, <%= piece.composer %></option>
+        <% else %>
+          <option value="<%= piece.id %>"><%= piece.name %>, <%= piece.composer %></option>
+        <% end %>
+      <% end %>
+    </select>
 
-</form>
+    <input type="submit" value="Add Piece to Book">
+
+
+  </form>
+
+  <% end %>

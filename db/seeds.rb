@@ -58,11 +58,22 @@ piece5 = Piece.new({
   'composer' => 'Johann Sebastian Bach',
   })
 
+piece6 = Piece.new({
+  'name' => 'Rondo',
+  'suite' => 'Sonata in E',
+  'movement' => 3,
+  'catalogue_name' => 'Op.',
+  'opus' => 14,
+  'work_number' => 1,
+  'composer' => 'Ludwig van Beethoven',
+  })
+
 piece1.save()
 piece2.save()
 piece3.save()
 piece4.save()
 piece5.save()
+piece6.save()
 
 # Books
 
